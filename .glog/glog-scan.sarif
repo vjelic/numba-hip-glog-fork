@@ -10,7 +10,20 @@
           "version": "1.0.0",
           "semanticVersion": "1.0.0",
           "informationUri": "https://www.glog.ai",
-          "rules": [],
+          "rules": [
+            {
+              "id": "glog-17e56505-6341-4d66-afe4-08966905e8c2",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\n\"Exec Usage Detected\" is a vulnerability in Python programming language that arises when the `exec()` function is used. The `exec()` function is a built-in Python function that executes the Python code contained within a string or object. This function can be a security risk because it can execute arbitrary Python code. If an attacker can control the input to the `exec()` function, they can execute arbitrary commands, leading to remote code execution (RCE) vulnerabilities.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, avoid using the `exec()` function whenever possible. If you must use it, never use it on user-supplied input or other untrusted data. Instead, use safer alternatives that do not execute code dynamically, such as using functions or classes.\n\n## Source Code Fix Recommendation\n\nInstead of using `exec()`, consider using safer alternatives. For example, if you're using `exec()` to call a function, you could use a dictionary of functions instead:\n\n```python\ndef function1():\n    print(\"Function 1\")\n\ndef function2():\n    print(\"Function 2\")\n\nfunctions = {\n    'function1': function1,\n    'function2': function2\n}\n\n# Instead of exec(\"function1()\"), use:\nfunctions['function1']()\n```\n\nIn this example, the dictionary `functions` maps strings to function objects. Instead of using `exec()` to execute a function based on its name, you can look up the function in the dictionary and call it directly.\n\n## Library Dependencies\n\nThe code example does not require any library dependencies.\n\n## References\n\n- [CWE-94: Improper Control of Generation of Code ('Code Injection')](https://cwe.mitre.org/data/definitions/94.html)"
+              },
+              "properties": {
+                "tags": [
+                  "B102"
+                ]
+              }
+            }
+          ],
           "language": "en-US",
           "contents": [
             "localizedData",
@@ -20,7 +33,45 @@
         }
       },
       "language": "en-US",
-      "results": [],
+      "results": [
+        {
+          "ruleId": "glog-17e56505-6341-4d66-afe4-08966905e8c2",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Exec Usage Detected"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "numba/hip/util/modulerepl.py"
+                },
+                "region": {
+                  "startLine": 101,
+                  "startColumn": 5,
+                  "endLine": 102,
+                  "endColumn": 6,
+                  "snippet": {
+                    "text": "    exec(\n"
+                  }
+                },
+                "contextRegion": {
+                  "startLine": 100,
+                  "endLine": 105,
+                  "snippet": {
+                    "text": "    # if isinstance(content_derived,str): print(content_derived)\n    exec(\n        compile(content_preprocessed, \"<string> <modified>\", \"exec\"),\n        module_dict,\n    )  # populates module_context\n    return module_dict\n"
+                  }
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_severity": "MEDIUM",
+            "issue_confidence": "HIGH"
+          }
+        }
+      ],
       "newlineSequences": [
         "\r\n",
         "\n"
