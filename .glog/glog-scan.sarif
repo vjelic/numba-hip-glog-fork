@@ -12,27 +12,26 @@
           "informationUri": "https://www.glog.ai",
           "rules": [
             {
-              "id": "153b1fd2-fb76-3dc5-973f-ab77bca780d9",
-              "name": "python.lang.security.dangerous-globals-use.dangerous-globals-use",
+              "id": "bc8d34b1-4cd1-35b9-b2d1-0248ce019087",
+              "name": "resources.rules.return-not-in-function",
               "shortDescription": {
-                "text": "Opengrep Finding: python.lang.security.dangerous-globals-use.dangerous-globals-use"
+                "text": "Opengrep Finding: resources.rules.return-not-in-function"
               },
               "fullDescription": {
-                "text": "Found non static data as an index to 'globals()'. This is extremely dangerous because it allows an attacker to execute arbitrary code on the system. Refactor your code not to use 'globals()'."
+                "text": "`return` only makes sense inside a function"
               },
               "defaultConfiguration": {
                 "enabled": true,
                 "level": "warning"
               },
-              "helpUri": "https://semgrep.dev/r/python.lang.security.dangerous-globals-use.dangerous-globals-use",
               "help": {
-                "text": "Found non static data as an index to 'globals()'. This is extremely dangerous because it allows an attacker to execute arbitrary code on the system. Refactor your code not to use 'globals()'.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Found non static data as an index to 'globals()'. This is extremely dangerous because it allows an attacker to execute arbitrary code on the system. Refactor your code not to use 'globals()'.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/python.lang.security.dangerous-globals-use.dangerous-globals-use)\n - [https://github.com/mpirnat/lets-be-bad-guys/blob/d92768fb3ade32956abd53bd6bb06e19d634a084/badguys/vulnerable/views.py#L181-L186](https://github.com/mpirnat/lets-be-bad-guys/blob/d92768fb3ade32956abd53bd6bb06e19d634a084/badguys/vulnerable/views.py#L181-L186)\n"
+                "text": "`return` only makes sense inside a function\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "`return` only makes sense inside a function\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>"
               },
               "properties": {
                 "precision": "very-high",
                 "tags": [
-                  "python.lang.security.dangerous-globals-use.dangerous-globals-use"
+                  "resources.rules.return-not-in-function"
                 ]
               }
             },
@@ -62,6 +61,31 @@
               }
             },
             {
+              "id": "153b1fd2-fb76-3dc5-973f-ab77bca780d9",
+              "name": "python.lang.security.dangerous-globals-use.dangerous-globals-use",
+              "shortDescription": {
+                "text": "Opengrep Finding: python.lang.security.dangerous-globals-use.dangerous-globals-use"
+              },
+              "fullDescription": {
+                "text": "Found non static data as an index to 'globals()'. This is extremely dangerous because it allows an attacker to execute arbitrary code on the system. Refactor your code not to use 'globals()'."
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "helpUri": "https://semgrep.dev/r/python.lang.security.dangerous-globals-use.dangerous-globals-use",
+              "help": {
+                "text": "Found non static data as an index to 'globals()'. This is extremely dangerous because it allows an attacker to execute arbitrary code on the system. Refactor your code not to use 'globals()'.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Found non static data as an index to 'globals()'. This is extremely dangerous because it allows an attacker to execute arbitrary code on the system. Refactor your code not to use 'globals()'.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/python.lang.security.dangerous-globals-use.dangerous-globals-use)\n - [https://github.com/mpirnat/lets-be-bad-guys/blob/d92768fb3ade32956abd53bd6bb06e19d634a084/badguys/vulnerable/views.py#L181-L186](https://github.com/mpirnat/lets-be-bad-guys/blob/d92768fb3ade32956abd53bd6bb06e19d634a084/badguys/vulnerable/views.py#L181-L186)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "python.lang.security.dangerous-globals-use.dangerous-globals-use"
+                ]
+              }
+            },
+            {
               "id": "a8f2dfef-772e-3fbf-b929-d3ce525733a4",
               "name": "resources.rules.dlint-catastrophic-redos",
               "shortDescription": {
@@ -86,7 +110,7 @@
               }
             },
             {
-              "id": "c31001e5-aa0f-3927-80e5-d7713ed72df3",
+              "id": "ef16a93f-983f-3207-b1e8-24670e7bab72",
               "name": "resources.rules.dlint-catastrophic-redos",
               "shortDescription": {
                 "text": "Opengrep Finding: resources.rules.dlint-catastrophic-redos"
@@ -159,7 +183,7 @@
               }
             },
             {
-              "id": "ef16a93f-983f-3207-b1e8-24670e7bab72",
+              "id": "c31001e5-aa0f-3927-80e5-d7713ed72df3",
               "name": "resources.rules.dlint-catastrophic-redos",
               "shortDescription": {
                 "text": "Opengrep Finding: resources.rules.dlint-catastrophic-redos"
@@ -280,6 +304,37 @@
           "properties": {}
         },
         {
+          "ruleId": "153b1fd2-fb76-3dc5-973f-ab77bca780d9",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Found non static data as an index to 'globals()'. This is extremely dangerous because it allows an attacker to execute arbitrary code on the system. Refactor your code not to use 'globals()'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "numba/hip/__init__.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 221,
+                  "startColumn": 13,
+                  "endLine": 221,
+                  "endColumn": 25,
+                  "snippet": {
+                    "text": "        del globals()[k]"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "ab1205974bf5401f5a4b4f7abf4637b116b390de899e6817405b1cc531f78cbfa3c6a55aff117d1722cc699d9cf43010420b68691532acc2b555ad0f89b4bd9c_0"
+          },
+          "properties": {}
+        },
+        {
           "ruleId": "a8f2dfef-772e-3fbf-b929-d3ce525733a4",
           "kind": "fail",
           "level": "warning",
@@ -311,33 +366,33 @@
           "properties": {}
         },
         {
-          "ruleId": "c31001e5-aa0f-3927-80e5-d7713ed72df3",
+          "ruleId": "ef16a93f-983f-3207-b1e8-24670e7bab72",
           "kind": "fail",
           "level": "warning",
           "message": {
-            "text": "Regex `r\"[^a-z0-9]\"` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
+            "text": "Regex `r\"(safe|unsafe)?[Aa]tomic([A-Z][A-Za-z]+)_?(\\w+)?\"` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
           },
           "locations": [
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "numba/hip/target.py",
+                  "uri": "numba/hip/typing_lowering/hipdevicelib/hipdevicelib.py",
                   "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
-                  "startLine": 136,
-                  "startColumn": 15,
-                  "endLine": 136,
-                  "endColumn": 45,
+                  "startLine": 417,
+                  "startColumn": 23,
+                  "endLine": 419,
+                  "endColumn": 10,
                   "snippet": {
-                    "text": "VALID_CHARS = re.compile(r\"[^a-z0-9]\", re.I)"
+                    "text": "        p_atomic_op = re.compile(\n            r\"(safe|unsafe)?[Aa]tomic([A-Z][A-Za-z]+)_?(\\w+)?\"\n        )  # group 1,3 optional"
                   }
                 }
               }
             }
           ],
           "fingerprints": {
-            "matchBasedId/v1": "94fc32e361386156a2359fc9708d2fe6edffa15808f8833458e47a8296890c77b70be09de0bbb253b4b8e3418b24463185c93929593400ec900ef2359c53dfbd_0"
+            "matchBasedId/v1": "c4145259e687439f579d6729acec89c9c3ccacdd4098d289272e5dc5920ba43149fdf1a7a17947a4de8320e8759fe28f65e9b2911a5169d3c66a69295c78c8e6_0"
           },
           "properties": {}
         },
@@ -404,33 +459,33 @@
           "properties": {}
         },
         {
-          "ruleId": "ef16a93f-983f-3207-b1e8-24670e7bab72",
+          "ruleId": "c31001e5-aa0f-3927-80e5-d7713ed72df3",
           "kind": "fail",
           "level": "warning",
           "message": {
-            "text": "Regex `r\"(safe|unsafe)?[Aa]tomic([A-Z][A-Za-z]+)_?(\\w+)?\"` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
+            "text": "Regex `r\"[^a-z0-9]\"` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
           },
           "locations": [
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "numba/hip/typing_lowering/hipdevicelib/hipdevicelib.py",
+                  "uri": "numba/hip/target.py",
                   "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
-                  "startLine": 417,
-                  "startColumn": 23,
-                  "endLine": 419,
-                  "endColumn": 10,
+                  "startLine": 136,
+                  "startColumn": 15,
+                  "endLine": 136,
+                  "endColumn": 45,
                   "snippet": {
-                    "text": "        p_atomic_op = re.compile(\n            r\"(safe|unsafe)?[Aa]tomic([A-Z][A-Za-z]+)_?(\\w+)?\"\n        )  # group 1,3 optional"
+                    "text": "VALID_CHARS = re.compile(r\"[^a-z0-9]\", re.I)"
                   }
                 }
               }
             }
           ],
           "fingerprints": {
-            "matchBasedId/v1": "c4145259e687439f579d6729acec89c9c3ccacdd4098d289272e5dc5920ba43149fdf1a7a17947a4de8320e8759fe28f65e9b2911a5169d3c66a69295c78c8e6_0"
+            "matchBasedId/v1": "94fc32e361386156a2359fc9708d2fe6edffa15808f8833458e47a8296890c77b70be09de0bbb253b4b8e3418b24463185c93929593400ec900ef2359c53dfbd_0"
           },
           "properties": {}
         },
