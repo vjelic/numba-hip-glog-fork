@@ -12,30 +12,6 @@
           "informationUri": "https://www.glog.ai",
           "rules": [
             {
-              "id": "bc8d34b1-4cd1-35b9-b2d1-0248ce019087",
-              "name": "resources.rules.return-not-in-function",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.return-not-in-function"
-              },
-              "fullDescription": {
-                "text": "`return` only makes sense inside a function"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "help": {
-                "text": "`return` only makes sense inside a function\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "`return` only makes sense inside a function\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.return-not-in-function"
-                ]
-              }
-            },
-            {
               "id": "df13166b-3af0-3fdd-8169-a94b7b4d72b1",
               "name": "python.lang.security.audit.non-literal-import.non-literal-import",
               "shortDescription": {
@@ -82,6 +58,30 @@
                 "precision": "very-high",
                 "tags": [
                   "python.lang.security.dangerous-globals-use.dangerous-globals-use"
+                ]
+              }
+            },
+            {
+              "id": "bc8d34b1-4cd1-35b9-b2d1-0248ce019087",
+              "name": "resources.rules.return-not-in-function",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.return-not-in-function"
+              },
+              "fullDescription": {
+                "text": "`return` only makes sense inside a function"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "help": {
+                "text": "`return` only makes sense inside a function\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "`return` only makes sense inside a function\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.return-not-in-function"
                 ]
               }
             },
@@ -159,30 +159,6 @@
               }
             },
             {
-              "id": "8a341d7b-2446-35c2-a549-33472a638858",
-              "name": "resources.rules.useless-inner-function",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.useless-inner-function"
-              },
-              "fullDescription": {
-                "text": "function `$FF` is defined inside a function but never used"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "error"
-              },
-              "help": {
-                "text": "function `$FF` is defined inside a function but never used\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "function `$FF` is defined inside a function but never used\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.useless-inner-function"
-                ]
-              }
-            },
-            {
               "id": "c31001e5-aa0f-3927-80e5-d7713ed72df3",
               "name": "resources.rules.dlint-catastrophic-redos",
               "shortDescription": {
@@ -203,6 +179,30 @@
                 "precision": "very-high",
                 "tags": [
                   "resources.rules.dlint-catastrophic-redos"
+                ]
+              }
+            },
+            {
+              "id": "8a341d7b-2446-35c2-a549-33472a638858",
+              "name": "resources.rules.useless-inner-function",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.useless-inner-function"
+              },
+              "fullDescription": {
+                "text": "function `$FF` is defined inside a function but never used"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "error"
+              },
+              "help": {
+                "text": "function `$FF` is defined inside a function but never used\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "function `$FF` is defined inside a function but never used\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.useless-inner-function"
                 ]
               }
             },
@@ -241,37 +241,6 @@
       },
       "language": "en-US",
       "results": [
-        {
-          "ruleId": "bc8d34b1-4cd1-35b9-b2d1-0248ce019087",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "`return` only makes sense inside a function"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "numba/hip/hipdrv/__init__.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 104,
-                  "startColumn": 32,
-                  "endLine": 106,
-                  "endColumn": 6,
-                  "snippet": {
-                    "text": "    preprocess=lambda content: content.replace(\n        \"from numba import cuda\", \"from numba import hip as cuda\"\n    ),"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "8d0558511fb089e3ef9ee64b3614d562f28f2cc6b05061f59a899e22dcea9de2172ca0cbf40479f672ba092ffc30d0e065021431a7095ca8f09c963fb1cc7c81_1"
-          },
-          "properties": {}
-        },
         {
           "ruleId": "df13166b-3af0-3fdd-8169-a94b7b4d72b1",
           "kind": "fail",
@@ -331,6 +300,37 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "ab1205974bf5401f5a4b4f7abf4637b116b390de899e6817405b1cc531f78cbfa3c6a55aff117d1722cc699d9cf43010420b68691532acc2b555ad0f89b4bd9c_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "bc8d34b1-4cd1-35b9-b2d1-0248ce019087",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "`return` only makes sense inside a function"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "numba/hip/hipdrv/__init__.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 104,
+                  "startColumn": 32,
+                  "endLine": 106,
+                  "endColumn": 6,
+                  "snippet": {
+                    "text": "    preprocess=lambda content: content.replace(\n        \"from numba import cuda\", \"from numba import hip as cuda\"\n    ),"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "8d0558511fb089e3ef9ee64b3614d562f28f2cc6b05061f59a899e22dcea9de2172ca0cbf40479f672ba092ffc30d0e065021431a7095ca8f09c963fb1cc7c81_1"
           },
           "properties": {}
         },
@@ -428,37 +428,6 @@
           "properties": {}
         },
         {
-          "ruleId": "8a341d7b-2446-35c2-a549-33472a638858",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "function `_attribute_resolution` is defined inside a function but never used"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "numba/hip/intrinsics.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 186,
-                  "startColumn": 5,
-                  "endLine": 195,
-                  "endColumn": 19,
-                  "snippet": {
-                    "text": "    @overload_attribute(types.Module(stub), attr, target=\"hip\")\n    def _attribute_resolution(mod):\n        @intrinsic\n        def _attribute_resolution_inner(typingctx):\n            return sig, lambda *cfargs: _call_first(getter_stub, *cfargs)\n\n        def get(mod):\n            return _attribute_resolution_inner()\n\n        return get"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "7b2cbee77414aa7a88b51848816ab13efc5c816dbcff40ab4fe3b99282326b3c3b0e369a94a313583c23e1a8794a9316a705a34c643287eb1445e5758084fbb6_0"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "c31001e5-aa0f-3927-80e5-d7713ed72df3",
           "kind": "fail",
           "level": "warning",
@@ -486,6 +455,37 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "94fc32e361386156a2359fc9708d2fe6edffa15808f8833458e47a8296890c77b70be09de0bbb253b4b8e3418b24463185c93929593400ec900ef2359c53dfbd_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "8a341d7b-2446-35c2-a549-33472a638858",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "function `_attribute_resolution` is defined inside a function but never used"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "numba/hip/intrinsics.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 186,
+                  "startColumn": 5,
+                  "endLine": 195,
+                  "endColumn": 19,
+                  "snippet": {
+                    "text": "    @overload_attribute(types.Module(stub), attr, target=\"hip\")\n    def _attribute_resolution(mod):\n        @intrinsic\n        def _attribute_resolution_inner(typingctx):\n            return sig, lambda *cfargs: _call_first(getter_stub, *cfargs)\n\n        def get(mod):\n            return _attribute_resolution_inner()\n\n        return get"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "7b2cbee77414aa7a88b51848816ab13efc5c816dbcff40ab4fe3b99282326b3c3b0e369a94a313583c23e1a8794a9316a705a34c643287eb1445e5758084fbb6_0"
           },
           "properties": {}
         },
